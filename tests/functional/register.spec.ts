@@ -11,12 +11,12 @@ test.describe('Funcionalidad: Register', async () => {
         await registerPage.goto();
     })
 
-    test('Se redirige correctamente a la página de registro', async ({ page }) => {
+    test('Se redirige correctamente a la página de registro @functional', async ({ page }) => {
         await expect(page).toHaveURL(/parabank\/register\.htm/i);
 
     });
 
-    test('Todos los elementos web cargaron correctamente', async ({ page }) => {
+    test('Todos los elementos web cargaron correctamente @ui', async ({ page }) => {
         await expect(page.getByRole('heading', { name: 'Signing up is easy!' })).toBeVisible();
         await expect(page.getByText('If you have an account with')).toBeVisible();
         await expect(page.getByText('First Name:')).toBeVisible();
@@ -44,7 +44,7 @@ test.describe('Funcionalidad: Register', async () => {
         await expect(page.getByRole('button', { name: 'Register' })).toBeVisible();
     });
 
-    test('Registro exitoso de un usuario', async ({ page }) => {
+    test('Registro exitoso de un usuario @functional', async ({ page }) => {
 
         const newUserData = generateNewUser();
         await registerPage.registerUser(newUserData);
@@ -54,7 +54,7 @@ test.describe('Funcionalidad: Register', async () => {
         await expect(page.locator('.smallText')).toHaveText(`Welcome ${newUserData.firstName} ${newUserData.lastName}`);
     });
 
-    test('Se valida que los campos son de ingreso obligatorio', async ({ page }) => {
+    test('Se valida que los campos son de ingreso obligatorio @functional', async ({ page }) => {
         await page.getByRole('button', { name: 'Register' }).click();
         await expect (page.getByText('First name is required.')).toBeVisible();
         await expect (page.getByText('Last name is required.')).toBeVisible();
@@ -71,7 +71,7 @@ test.describe('Funcionalidad: Register', async () => {
     
 
 
-    test('No permite registrar un usuario con username ya existente', async ({ page }) => {
+    test('No permite registrar un usuario con username ya existente @functional', async ({ page }) => {
         const userDuplicado = generateNewUser();
       
         // 1. Registrar usuario por primera vez

@@ -10,7 +10,7 @@ test.describe('Funcionalidad Home', () => {
         await homePage.goto();
     })
 
-    test('Se visualizan todos los elementos de la sección Customer Login', async () => {
+    test('Se visualizan todos los elementos de la sección Customer Login @ui', async () => {
 
         await expect(homePage.customerLoginTitle).toBeVisible();
         await expect(homePage.usernameLabel).toBeVisible();

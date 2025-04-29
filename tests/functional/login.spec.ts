@@ -11,7 +11,7 @@ test.describe('Funcionalidad de Login', () => {
         await loginPage.goto();
     });
 
-    test('Login exitoso con usuario válido', async ({ page }) => {
+    test('Login exitoso con usuario válido @functional', async ({ page }) => {
         
         await loginPage.login('john', 'demo'); // Usuario de prueba público
 
@@ -23,7 +23,7 @@ test.describe('Funcionalidad de Login', () => {
         await expect(page).toHaveURL(/overview.htm/i);
     });
 
-    test('Login fallido con usuario inválido', async ({ page }) => {
+    test('Login fallido con usuario inválido @functional', async ({ page }) => {
         await loginPage.login('usuarioFalso', 'claveIncorrecta');
 
         // Validar que aparezca error
